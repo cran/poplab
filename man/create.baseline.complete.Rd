@@ -101,8 +101,8 @@ The syntax below constructs the baseline population for the
 calendar year 1955 (baseyear). It applies the 1955 fertility
 and mortality rates for 70 years (runintime) to the virtual
 population of 1855 constructed from the 1955 age profile; the
-1855 population consists of 5000 females and approximately
-5000 males (base.scale), all unrelated individuals. Incident
+1855 population consists of 3000 females and approximately
+3000 males (base.scale), all unrelated individuals. Incident
 cancer is assigned during the creation (healthy), but there is
 no familial risk of cancer (risk). The mortality ratio for cases
 is 2 (mortratio). The resulting population is not saved to file
@@ -114,7 +114,7 @@ poplab package.}
 base <- 
 create.baseline.complete(baseyear = 1955, healthy = 0, risk =
 1, mortratio = 2, d.mod = "rr", fam.rel = "p", base.scale = 
-50, runintime = 70, print.option = FALSE, population.fem = 
+30, runintime = 70, print.option = FALSE, population.fem = 
 "populationfem.txt", population.male = "populationmale.txt", 
 mortality.fem = "mortalityfem.txt", mortality.male = 
 "mortalitymale.txt", fertility = "fertility.txt", incidence = 
@@ -132,7 +132,7 @@ women diagnosed between the age of 50 to 100 years.
 base <- 
 create.baseline.complete(baseyear = 1955, healthy = 0, risk =
 c(50, 101, 4, 2), mortratio = 2, d.mod = "agesprr", fam.rel =
-"p", base.scale = 70, runintime = 50, print.option = FALSE, 
+"p", base.scale = 30, runintime = 70, print.option = FALSE, 
 population.fem = "populationfem.txt", population.male = 
 "populationmale.txt", mortality.fem = "mortalityfem.txt", 
 mortality.male = "mortalitymale.txt", fertility = 
