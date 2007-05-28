@@ -446,7 +446,7 @@ function (x, option, population.fem, population.male, year, folder,
     if ((!(year %in% as.integer(colnames(realfem)[-1]))) | (!(year %in% 
         as.integer(colnames(realmale)[-1])))) 
         stop(paste("No female or male population counts for the year", 
-            baseyear, "in data files"))
+            year, "in data files"))
     realmale <- realmale[, c(1, which(colnames(realmale) == year, 
         arr.ind = TRUE))]
     colnames(realmale) <- c("age", "counts")
@@ -565,13 +565,13 @@ function (baseyear, basehealth, basefamrisk, sex.a, basetotal,
     warn.old <- options()$warn
     options(warn = -1)
     if (name.base == "") {
-        name <- try(scan(file = paste(folder, "base_pop_", baseyear, 
-            ".txt", sep = ""), quiet = TRUE, what = "character", 
+        name <- try(scan(file = file.path(folder, paste("base_pop_", baseyear, 
+            ".txt", sep = "")), quiet = TRUE, what = "character", 
             nlines = 1), silent = TRUE)
     }
     else {
-        name <- try(scan(file = paste(folder, "base_pop_", baseyear, 
-            "_", name.base, ".txt", sep = ""), quiet = TRUE, 
+        name <- try(scan(file = file.path(folder, paste("base_pop_", baseyear, 
+            "_", name.base, ".txt", sep = "")), quiet = TRUE, 
             what = "character", nlines = 1), silent = TRUE)
     }
     if (!(name[1] %in% c("ID", "yob", "sex", "m", "f", "yod", 
